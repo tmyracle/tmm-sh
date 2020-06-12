@@ -40,10 +40,6 @@ app.get("/:id", async (req, res) => {
   }
 });
 
-app.get("/url/:id", (req, res) => {
-  // TODO: get info about url
-});
-
 app.post("/url", async (req, res, next) => {
   let { slug, url } = req.body;
   try {
@@ -90,5 +86,5 @@ app.use((error, req, res, next) => {
 const port = process.env.PORT || 2089;
 
 app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}`);
+  console.log(`Listening on port ${port}`);
 });
