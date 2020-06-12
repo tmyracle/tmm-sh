@@ -29,7 +29,40 @@
       </p>
     <![endif]-->
     <header>
-      <h1 class="main-header">tmm.sh - Tyler's url shortener</h1>
+      <h1 class="main-header">tmm.sh - url shortener</h1>
     </header>
+    <main id="app">
+      <div class="container-md">
+        <div class="col-md-6 col-offset-3 mx-auto">
+          <form @submit.prevent="createUrl()">
+            <label for="url" class="pt-4">URL to shorten</label>
+            <input
+              v-model="url"
+              id="url"
+              name="url"
+              class="form-control mb-4"
+            />
+            <label for="slug">Desired slug</label>
+            <input
+              v-model="slug"
+              id="slug"
+              name="slug"
+              class="form-control mb-4"
+            />
+            <button type="submit" class="btn btn-primary">Create</button>
+          </form>
+          <div v-if="created" class="mt-4 text-center">
+            🎉 You can now use
+            <pre class="highlighted mt-2 p-1">
+&nbsp;tmm.sh/{{created.slug}}&nbsp;</pre
+            >
+            to visit
+            <pre class="highlighted mt-2 p-1">&nbsp;{{created.url}}&nbsp;</pre>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script src="app.js"></script>
   </body>
 </html>

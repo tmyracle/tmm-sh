@@ -12,3 +12,12 @@ header {
   text-align: center;
   font-weight: 700;
 }
+
+.highlighted {
+  background-color: aquamarine;
+}
+
+pre {
+  margin-bottom: 8px !important;
+  border-radius: 4px !important;
+}
