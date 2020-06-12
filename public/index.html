@@ -49,13 +49,24 @@
               name="slug"
               class="form-control mb-4"
             />
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary">
+              Shorten that url!
+            </button>
           </form>
-          <div v-if="created" class="mt-4 text-center">
+          <div
+            v-cloak
+            v-if="created && created.message == 'Slug in use!'"
+            class="mt-4 text-center"
+          >
+            That slug is already taken! 😱
+          </div>
+          <div
+            v-cloak
+            v-else-if="created && created._id"
+            class="mt-4 text-center"
+          >
             🎉 You can now use
-            <pre class="highlighted mt-2 p-1">
-&nbsp;tmm.sh/{{created.slug}}&nbsp;</pre
-            >
+            <pre class="highlighted mt-2 p-1"> tmm.sh/{{created.slug}} </pre>
             to visit
             <pre class="highlighted mt-2 p-1">&nbsp;{{created.url}}&nbsp;</pre>
           </div>
